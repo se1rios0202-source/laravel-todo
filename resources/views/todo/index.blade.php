@@ -28,8 +28,9 @@
                         <a href="/task/{{ $task->id }}/edit" class="btn btn-sm btn-warning">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </a>
-                        <form action="/task/{{ $task->id }}/delete" method="post" class="d-inline">
+                        <form action="/task/{{ $task->id }}/destroy" method="post" class="d-inline">
                             @csrf
+                            @method('DELETE')
                             <button type="submit" class="btn btn-sm btn-danger">
                                 <i class="fa-solid fa-trash"></i>
                             </button>

@@ -25,6 +25,17 @@ class TaskController extends Controller
     }
     public function edit($id){
         $task = $this->task->find($id);
-        return view('todo.edit')->with('task','$task');
+        return view('todo.edit')->with('task',$task);
+    }
+    public function update($id,Request $request){
+        $task = $this->task->find($id);
+        $task->name = $request->name;
+        $task->save();
+
+        return redirect('/');
+    }
+    public function destroy($id){
+        $task = $this->task->destroy($id);
+        return back();
     }
 }
