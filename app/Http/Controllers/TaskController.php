@@ -18,6 +18,7 @@ class TaskController extends Controller
     }
 
     public function store(Request $request){
+        $request->validate(['name'=>'required | string | max:255',]);
         $this->task->name = $request->name;
         $this->task->save();
 
